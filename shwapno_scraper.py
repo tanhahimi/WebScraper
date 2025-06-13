@@ -13,7 +13,7 @@ WORKSHEET_NAME = 'Products'
 
 # --- Scraping Configuration ---
 BASE_URL = "https://www.shwapno.com"
-CATEGORY_URL = "https://www.shwapno.com/category/packed-rice" # উদাহরণস্বরূপ, প্যাকিং রাইসের ক্যাটাগরি। আপনি এটি পরিবর্তন করতে পারেন।
+CATEGORY_URL = "https://www.shwapno.com/aci-pure-fortified-jeerashail-rice-5kg-6" # উদাহরণস্বরূপ, প্যাকিং রাইসের ক্যাটাগরি। আপনি এটি পরিবর্তন করতে পারেন।
 MAX_PAGES = 3
 
 def get_soup(url):
