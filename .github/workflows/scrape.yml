@@ -1,9 +1,14 @@
-name: Web Scraping
+# .github/workflows/scrape_and_upload.yml
+name: Scrape Shwapno 
 
 on:
-  workflow_dispatch:
   schedule:
-    - cron: "0 5 * * *" # Runs every day at 5:00 AM UTC
+    # প্রতিদিন রাত ১২:০০ টায় (UTC) রান হবে।
+    # UTC থেকে বাংলাদেশের সময় (BST/BDT) ৬ ঘণ্টা এগিয়ে।
+    # তাই, এটি বাংলাদেশের সময় সকাল ৬টায় রান হবে।
+    # আপনি আপনার পছন্দ মতো সময় সেট করতে পারেন।
+    - cron: '0 0 * * *'
+  workflow_dispatch: # হাতে ম্যানুয়ালি রান করার জন্য
 
 jobs:
   scrape:
@@ -11,17 +16,21 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v4
+      uses: actions/checkout@v3
 
     - name: Set up Python
-      uses: actions/setup-python@v5
+      uses: actions/setup-python@v4
       with:
-        python-version: '3.10'
+        python-version: '3.9' # আপনার পছন্দসই পাইথন সংস্করণ
 
     - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
+        pip install requests beautifulsoup4 gspread oauth2client
 
     - name: Run scraper
-      run: python scraper.py
+      env:
+        # আপনার Google Service Account Key JSON স্ট্রিংটি এখানে এনকোড করা হবে।
+        # এই ভেরিয়েবলটি গিটহাব সিক্রেটস থেকে লোড হবে।
+        GSPREAD_SERVICE_ACCOUNT_KEY: ${{ secrets.GSPREAD_SERVICE_ACCOUNT_KEY }}
+      run: |
+        python shwapno_scraper.py
