@@ -20,7 +20,7 @@ BASE_URL = "https://www.shwapno.com"
 # যদি একটি নির্দিষ্ট পণ্যের পেজ স্ক্র্যাপ করতে চান:
 # CATEGORY_URL = "https://www.shwapno.com/product/aci-pure-fortified-jeerashail-rice-5kg-14227"
 # যদি ক্যাটাগরি পেজ থেকে একাধিক পণ্য স্ক্র্যাপ করতে চান (যেমন 'চাউল' ক্যাটাগরি):
-CATEGORY_URL = "https://www.shwapno.com/eggs" # উদাহরণস্বরূপ, চাউলের ক্যাটাগরি। আপনি এটি পরিবর্তন করতে পারেন।
+CATEGORY_URL = "https://www.shwapno.com/packed-rice" # উদাহরণস্বরূপ, চাউলের ক্যাটাগরি। আপনি এটি পরিবর্তন করতে পারেন।
 MAX_PAGES = 1 # কতগুলো পেজ স্ক্র্যাপ করতে চান। সতর্কতার সাথে এই সংখ্যা বাড়ান।
 
 def get_soup(url):
